@@ -1,4 +1,4 @@
 import { Request, Response } from "express";
-declare const getParticipants: (_req: Request, res: Response) => void;
+declare const getParticipants: (req: Request, res: Response) => Promise<void>;
 export { getParticipants };
 //# sourceMappingURL=RoomParticipantsController.d.ts.map
