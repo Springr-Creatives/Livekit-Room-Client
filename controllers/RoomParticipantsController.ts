@@ -17,11 +17,12 @@ const getParticipants = async (req: Request, res: Response): Promise<void> => {
 
   const { host, key, secret, roomName } = validation.validated;
   let participants: ParticipantInfo[] = [];
+  console.log("GET_PARTICIPANTS_REQUEST ", { roomName, host, key, secret });
   try {
     let roomServiceClient = new RoomServiceClient(host, key, secret);
     participants = await roomServiceClient.listParticipants(roomName);
   } catch (error) {
-    console.error(error);
+    console.error("GET_PARTICIPANTS_ERROR ", { error });
 
     res.status(500).json({
       success: false,

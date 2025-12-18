@@ -9,6 +9,14 @@ router.use((_req, res, next) => {
   next();
 });
 
+router.get("/v1/status", (_req, res) => {
+  res
+    .json({
+      success: true,
+    })
+    .status(200);
+});
+
 /* GET home page. */
 router.post("/v1/room/participants", getParticipants);
 
